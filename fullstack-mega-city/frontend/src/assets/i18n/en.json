@@ -1,0 +1,41 @@
+{
+  "app": "Winter University",
+  "common": {
+    "form": {
+      "required": "This field is required",
+      "maxLength": "This field can be a maximum of {{value}} characters long",
+      "invalidIndex": "Index has to start with NO"
+    },
+    "table": {
+      "actions": "Actions"
+    },
+    "button": {
+      "save": "Save",
+      "edit": "Edit",
+      "back": "Back"
+    }
+  },
+  "lore": {
+    "newBuilding": "New building",
+    "editBuilding": "Edit building '{{name}}'",
+    "building": {
+      "id": "ID",
+      "name": "Name",
+      "address": "Address",
+      "index": "Index",
+      "sectorCode": "Sector code",
+      "energyUnitsMax": "Energy units max",
+      "energyUnits": "Energy units",
+      "energyUnitsHint": "The amount of energy units that will be staked to the energy grid",
+      "validation": {
+        "minEnergyUnitsMax": "A building needs to have at least 1 energy unit",
+        "maxEnergyUnits": "This building can stake a maximum of {{value}} units"
+      }
+    },
+    "list": {
+      "button": {
+        "createNew": "Create new"
+      }
+    }
+  }
+}

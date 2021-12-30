@@ -1,0 +1,85 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="building-form">
+  <table class="w-100p" *ngIf="building">
+    <tr>
+      <td>
+        <h3>
+          {{
+          !building.id
+                  ? ('lore.newBuilding' | translate)
+                  : ('lore.editBuilding' | translate: { name: building?.name })
+          }}
+        </h3>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <mat-form-field class="w-100p" appearance="outline">
+          <mat-label>{{ 'lore.building.name' | translate }}</mat-label>
+          <input id="building-name" matInput formControlName="name" />
+          <mat-error *ngIf="hasError('name', 'required')">{{ 'common.form.required' | translate }}</mat-error>
+          <mat-error *ngIf="hasError('name', 'maxlength')">{{
+            'common.form.maxLength' | translate: { value: 255 }
+            }}</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field class="w-100p" appearance="outline">
+          <mat-label>{{ 'lore.building.address' | translate }}</mat-label>
+          <input matInput formControlName="address" />
+          <mat-error *ngIf="hasError('address', 'required')">{{ 'common.form.required' | translate }}</mat-error>
+          <mat-error *ngIf="hasError('address', 'maxlength')">{{
+            'common.form.maxLength' | translate: { value: 255 }
+            }}</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="w-100p" appearance="outline">
+          <mat-label>{{ 'lore.building.index' | translate }}</mat-label>
+          <input matInput formControlName="index" />
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <td colspan="2">
+      <mat-form-field class="w-100p" appearance="outline">
+        <mat-label>{{ 'lore.building.sectorCode' | translate }}</mat-label>
+        <input matInput formControlName="sectorCode" />
+      </mat-form-field>
+    </td>
+
+    <tr>
+      <td colspan="2">
+        <mat-form-field class="w-100p" appearance="outline">
+          <mat-label>{{ 'lore.building.energyUnitsMax' | translate }}</mat-label>
+          <input matInput formControlName="energyUnitMax" />
+          <mat-hint>{{ 'lore.building.energyUnitsMax' | translate }}</mat-hint>
+          <mat-error *ngIf="hasError('energyUnitMax', 'required')">{{ 'common.form.required' | translate }}</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <mat-form-field class="w-100p" appearance="outline">
+          <mat-label>{{ 'lore.building.energyUnits' | translate }}</mat-label>
+          <input matInput formControlName="energyUnits" />
+          <mat-hint>{{ 'lore.building.energyUnitsHint' | translate }}</mat-hint>
+          <mat-error *ngIf="hasError('energyUnits', 'required')">
+            {{ 'common.form.required' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <mat-divider></mat-divider>
+
+    <button mat-raised-button color="basic" class="new-building-btn" (click)="navigateToBuildingsList()">
+      {{ 'common.button.back' | translate }}
+    </button>
+    <button mat-raised-button color="primary" [disabled]="form.invalid">{{ 'common.button.save' | translate }}</button>
+  </table>
+</form>

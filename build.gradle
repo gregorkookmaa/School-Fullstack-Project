@@ -1,0 +1,23 @@
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+mainClassName = "com.nortal.platformer.Game"
+
+repositories {
+    mavenCentral()
+}
+
+task createSubmissionZip(dependsOn: getTasksByName('clean', true), type: Zip) {
+
+    destinationDir project.buildDir
+    archiveName 'assignment_submit.zip'
+    from projectDir
+    include subprojects.collect { it.name + '/**/*' } //Include everything under subprojects
+
+    exclude '**/node_modules','**/build', '**/.gradle', '**/.git', '**/*.iml', '**/.idea', '**/.metadata' //Exclude common stuff
+    print "You can find the zip to submit at: "+project.buildDir+"/assignment_submit.zip"
+}
