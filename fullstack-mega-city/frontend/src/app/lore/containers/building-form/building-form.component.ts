@@ -24,6 +24,13 @@ export class BuildingFormComponent implements OnInit {
 	ngOnInit() {
 		let id = this.route.snapshot.paramMap.get('id');
 
+		if (id === "new") {
+			this.building = new Building();
+			return;
+		}
+
+		// At this point forwards **id** should be a number
+		if (!Number(id)) return;
 		if (id !== null) {
 			this.buildingService.get(id).subscribe((data) => {
 				this.form = this.initForm(data);
@@ -55,7 +62,8 @@ export class BuildingFormComponent implements OnInit {
 				{
 					value: building?.energyUnitMax || '',
 					disabled: building?.id,
-				}
+				},
+				[Validators.required] 
 			),
 			energyUnits: new FormControl(
 				building?.energyUnits || '', 
