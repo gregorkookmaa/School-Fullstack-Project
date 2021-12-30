@@ -45,7 +45,11 @@ export class BuildingFormComponent implements OnInit {
 			index: new FormControl(
 				building?.index || '', [Validators.required, indexValidator]
 			),
-			sectorCode: new FormControl(building?.sectorCode || ''
+			sectorCode: new FormControl(
+				{
+					value: building?.sectorCode || '',
+					disabled: building?.id,
+				}
 			),
 			energyUnitMax: new FormControl(
 				{
