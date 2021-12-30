@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Building } from '../../model/building';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuildingService } from '../../services/building.service';
+import { indexValidator } from './building-form.component.validators';
 
 @Component({
 	selector: 'app-building-form',
@@ -42,7 +43,7 @@ export class BuildingFormComponent implements OnInit {
 				[Validators.required, Validators.maxLength(50)]
 			),
 			index: new FormControl(
-				building?.index || '', [Validators.required]
+				building?.index || '', [Validators.required, indexValidator]
 			),
 			sectorCode: new FormControl(building?.sectorCode || ''
 			),

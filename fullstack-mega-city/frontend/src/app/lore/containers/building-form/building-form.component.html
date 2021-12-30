@@ -40,6 +40,7 @@
         <mat-form-field class="w-100p" appearance="outline">
           <mat-label>{{ 'lore.building.index' | translate }}</mat-label>
           <input matInput formControlName="index" />
+          <mat-error *ngIf="hasError('index', 'indexStart')">{{ 'lore.building.validation.index' | translate }}</mat-error>
         </mat-form-field>
       </td>
     </tr>

@@ -29,7 +29,8 @@
       "energyUnitsHint": "The amount of energy units that will be staked to the energy grid",
       "validation": {
         "minEnergyUnitsMax": "A building needs to have at least 1 energy unit",
-        "maxEnergyUnits": "This building can stake a maximum of {{value}} units"
+        "maxEnergyUnits": "This building can stake a maximum of {{value}} units",
+        "index": "Index has to start with NO"
       }
     },
     "list": {
