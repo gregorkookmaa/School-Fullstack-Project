@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Building } from '../../model/building';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuildingService } from '../../services/building.service';
-import { indexValidator } from './building-form.component.validators';
+import { indexValidator, maximumEnergyValidator } from './building-form.component.validators';
 
 @Component({
 	selector: 'app-building-form',
@@ -54,7 +54,8 @@ export class BuildingFormComponent implements OnInit {
 				}
 			),
 			energyUnits: new FormControl(
-				building?.energyUnits || '',
+				building?.energyUnits || '', 
+				[Validators.required, maximumEnergyValidator(building?.energyUnitMax)]
 			),
 		});
 	}
