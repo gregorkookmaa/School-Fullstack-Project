@@ -1,5 +1,7 @@
 <div class="data-table">
-
+	<button mat-raised-button color="primary" class="new-building-btn" (click)="createBuilding()">
+		{{ 'lore.list.button.createNew' | translate }}
+	</button>
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 		<ng-container matColumnDef="id">
 			<th class="w-75" mat-header-cell *matHeaderCellDef>{{ 'lore.building.id' | translate }}</th>
@@ -26,6 +28,9 @@
 		<ng-container matColumnDef="actions">
 			<th class="w-75" mat-header-cell *matHeaderCellDef>{{ 'common.table.actions' | translate }}</th>
 			<td mat-cell *matCellDef="let element">
+				<button mat-raised-button color="basic" (click)="updateBuilding(element.id)">
+					{{ 'lore.list.button.edit' | translate }}
+				</button>
 			</td>
 		</ng-container>
 

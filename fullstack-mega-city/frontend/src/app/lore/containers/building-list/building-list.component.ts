@@ -17,4 +17,12 @@ export class BuildingListComponent implements OnInit {
 	ngOnInit() {
 		this.buildingService.getAll().subscribe(buildings => this.dataSource = buildings);
 	}
+
+	updateBuilding(id: number) {
+		this.router.navigate([`building/${id}`]).then();
+	}
+
+	createBuilding() {
+		this.router.navigate(['building/new']).then();
+	}
 }
