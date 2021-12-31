@@ -4,6 +4,7 @@ import { Building } from '../../model/building';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuildingService } from '../../services/building.service';
 import { indexValidator, maximumEnergyValidator } from './building-form.component.validators';
+import { ContentObserver, ObserversModule } from '@angular/cdk/observers';
 
 @Component({
 	selector: 'app-building-form',
@@ -24,19 +25,33 @@ export class BuildingFormComponent implements OnInit {
 	ngOnInit() {
 		let id = this.route.snapshot.paramMap.get('id');
 
-		if (id === "new") {
-			this.building = new Building();
-			return;
-		}
+		if (id === 'new') return this.initialize(new Building());
 
 		// At this point forwards **id** should be a number
 		if (!Number(id)) return;
 		if (id !== null) {
 			this.buildingService.get(id).subscribe((data) => {
-				this.form = this.initForm(data);
-				this.building = data;
+				this.initialize(data);
 			});
 		}
+	}
+
+	initialize(building?: Building) {
+		this.building = building;
+
+		if (building) {
+			this.form = this.initForm(building);
+		} else {
+			// When creating a new building
+			// So that energy units are checked when max energy value is changed
+			this.form.controls['energyUnitMax'].valueChanges.subscribe(() => {
+				this.form.controls['energyUnits'].updateValueAndValidity();
+			});
+		}
+
+		this.form.valueChanges.subscribe((data: Building) => {
+			this.building = data;
+		});
 	}
 
 	initForm(building?: Building) {
@@ -50,7 +65,8 @@ export class BuildingFormComponent implements OnInit {
 				[Validators.required, Validators.maxLength(50)]
 			),
 			index: new FormControl(
-				building?.index || '', [Validators.required, indexValidator]
+				building?.index || '',
+				[Validators.required, indexValidator()]
 			),
 			sectorCode: new FormControl(
 				{
@@ -63,11 +79,11 @@ export class BuildingFormComponent implements OnInit {
 					value: building?.energyUnitMax || '',
 					disabled: building?.id,
 				},
-				[Validators.required] 
+				[Validators.required]
 			),
 			energyUnits: new FormControl(
 				building?.energyUnits || '', 
-				[Validators.required, maximumEnergyValidator(building?.energyUnitMax)]
+				[Validators.required, maximumEnergyValidator()]
 			),
 		});
 	}
@@ -82,7 +98,6 @@ export class BuildingFormComponent implements OnInit {
 
 	submit() {
 		const buildingToSave = { ...this.form.value, id: this.building.id };
-
-			this.buildingService.put(buildingToSave).subscribe();
+		this.buildingService.put(buildingToSave).subscribe();
 	}
 }
