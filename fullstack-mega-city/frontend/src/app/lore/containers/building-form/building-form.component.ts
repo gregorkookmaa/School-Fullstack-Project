@@ -4,7 +4,6 @@ import { Building } from '../../model/building';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuildingService } from '../../services/building.service';
 import { indexValidator, maximumEnergyValidator } from './building-form.component.validators';
-import { ContentObserver, ObserversModule } from '@angular/cdk/observers';
 
 @Component({
 	selector: 'app-building-form',
@@ -42,16 +41,11 @@ export class BuildingFormComponent implements OnInit {
 		if (building) {
 			this.form = this.initForm(building);
 		} else {
-			// When creating a new building
 			// So that energy units are checked when max energy value is changed
 			this.form.controls['energyUnitMax'].valueChanges.subscribe(() => {
 				this.form.controls['energyUnits'].updateValueAndValidity();
 			});
 		}
-
-		this.form.valueChanges.subscribe((data: Building) => {
-			this.building = data;
-		});
 	}
 
 	initForm(building?: Building) {

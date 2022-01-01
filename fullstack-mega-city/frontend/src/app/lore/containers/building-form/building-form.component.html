@@ -73,7 +73,7 @@
             {{ 'common.form.required' | translate }}
           </mat-error>
           <mat-error *ngIf="hasError('energyUnits', 'maxEnergy')">{{
-            'lore.building.validation.maxEnergyUnits' | translate: { value: building?.energyUnitMax }
+            'lore.building.validation.maxEnergyUnits' | translate: { value: form.controls.energyUnitMax.value }
             }}</mat-error>
         </mat-form-field>
       </td>

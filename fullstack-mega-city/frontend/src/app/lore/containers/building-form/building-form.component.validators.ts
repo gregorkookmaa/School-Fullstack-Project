@@ -1,5 +1,4 @@
 import { AbstractControl, FormGroup, ValidatorFn } from '@angular/forms';
-import { Building } from '../../model/building';
 
 /**
  * Validates if index starts with **"NO"**
