@@ -73,11 +73,11 @@ export class BuildingFormComponent implements OnInit {
 					value: building?.energyUnitMax || '',
 					disabled: building?.id,
 				},
-				[Validators.required]
+				[Validators.pattern(/^\d+$/), Validators.required]
 			),
 			energyUnits: new FormControl(
 				building?.energyUnits || '', 
-				[Validators.required, maximumEnergyValidator()]
+				[Validators.pattern(/^\d+$/), Validators.required, maximumEnergyValidator()]
 			),
 		});
 	}
@@ -92,6 +92,7 @@ export class BuildingFormComponent implements OnInit {
 
 	submit() {
 		const buildingToSave = { ...this.form.value, id: this.building.id };
+		console.info('Building to save:', buildingToSave);
 		this.buildingService.put(buildingToSave).subscribe();
 	}
 }

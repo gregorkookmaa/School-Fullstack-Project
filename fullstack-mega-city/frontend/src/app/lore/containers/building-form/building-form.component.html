@@ -40,7 +40,7 @@
         <mat-form-field class="w-100p" appearance="outline">
           <mat-label>{{ 'lore.building.index' | translate }}</mat-label>
           <input matInput formControlName="index" />
-          <mat-error *ngIf="hasError('index', 'indexStart')">{{ 'lore.building.validation.index' | translate }}</mat-error>
+          <mat-error *ngIf="hasError('index', 'indexStart')">{{ 'common.form.invalidIndex' | translate }}</mat-error>
         </mat-form-field>
       </td>
     </tr>
@@ -58,6 +58,7 @@
           <mat-label>{{ 'lore.building.energyUnitsMax' | translate }}</mat-label>
           <input matInput formControlName="energyUnitMax" />
           <mat-hint>{{ 'lore.building.energyUnitsMax' | translate }}</mat-hint>
+          <mat-error *ngIf="hasError('energyUnitMax', 'pattern')">{{ 'common.form.number' | translate }}</mat-error>
           <mat-error *ngIf="hasError('energyUnitMax', 'required')">{{ 'common.form.required' | translate }}</mat-error>
         </mat-form-field>
       </td>
@@ -69,6 +70,7 @@
           <mat-label>{{ 'lore.building.energyUnits' | translate }}</mat-label>
           <input matInput formControlName="energyUnits" />
           <mat-hint>{{ 'lore.building.energyUnitsHint' | translate }}</mat-hint>
+          <mat-error *ngIf="hasError('energyUnits', 'pattern')">{{ 'common.form.number' | translate }}</mat-error>
           <mat-error *ngIf="hasError('energyUnits', 'required')">
             {{ 'common.form.required' | translate }}
           </mat-error>

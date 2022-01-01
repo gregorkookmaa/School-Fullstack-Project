@@ -4,7 +4,8 @@
     "form": {
       "required": "This field is required",
       "maxLength": "This field can be a maximum of {{value}} characters long",
-      "invalidIndex": "Index has to start with NO"
+      "invalidIndex": "Index has to start with NO",
+      "number": "Only numbers are allowed"
     },
     "table": {
       "actions": "Actions"
@@ -29,8 +30,7 @@
       "energyUnitsHint": "The amount of energy units that will be staked to the energy grid",
       "validation": {
         "minEnergyUnitsMax": "A building needs to have at least 1 energy unit",
-        "maxEnergyUnits": "This building can stake a maximum of {{value}} units",
-        "index": "Index has to start with NO"
+        "maxEnergyUnits": "This building can stake a maximum of {{value}} units"
       }
     },
     "list": {
