@@ -24,5 +24,10 @@ public class BuildingService {
     }
 
     public void save(Building building) {
+        buildingRepository.save(buildingDboMapper.map(building));
+    }
+
+    public Long count() {
+        return buildingRepository.count();
     }
 }
