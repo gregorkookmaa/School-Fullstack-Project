@@ -29,7 +29,7 @@ export class BuildingFormComponent implements OnInit {
 		// At this point forwards **id** should be a number
 		if (!Number(id)) return;
 		if (id !== null) {
-			this.buildingService.get(id).subscribe((data) => {
+			this.buildingService.get(id).subscribe((data: Building) => {
 				this.initialize(data);
 			});
 		}
@@ -73,11 +73,11 @@ export class BuildingFormComponent implements OnInit {
 					value: building?.energyUnitMax || '',
 					disabled: building?.id,
 				},
-				[Validators.pattern(/^\d+$/), Validators.required]
+				[Validators.required, Validators.pattern(/^\d+$/)]
 			),
 			energyUnits: new FormControl(
 				building?.energyUnits || '', 
-				[Validators.pattern(/^\d+$/), Validators.required, maximumEnergyValidator()]
+				[Validators.required, Validators.pattern(/^\d+$/), maximumEnergyValidator('energyUnitMax')]
 			),
 		});
 	}
