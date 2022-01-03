@@ -1,5 +1,6 @@
 package com.nortal.mega.rest;
 
+import com.nortal.mega.service.Building;
 import com.nortal.mega.service.BuildingService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,11 @@ public class BuildingController {
 
     @PutMapping
     public ResponseEntity<BuildingDto> updateBuilding(@RequestBody @Valid BuildingDto building) {
+        Building buildingInDatabase = buildingService.findBuildingById(building.getId());
+        // Redundancy - Building "SectorCode" and "EnergyUnitMax" must not be changed
+        building.setSectorCode(buildingInDatabase.getSectorCode());
+        building.setEnergyUnitMax(buildingInDatabase.getEnergyUnitMax());
+
         buildingService.save(buildingDtoMapper.map(building));
         return ResponseEntity.ok().build();
     }
