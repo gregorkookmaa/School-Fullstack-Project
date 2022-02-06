@@ -95,7 +95,9 @@ export class BuildingFormComponent implements OnInit {
 		// getRawValue in order to get the values of disabled controls as well
 		const buildingToSave = { ...this.form.getRawValue(), id: this.building.id };
 		console.info('Building to save:', buildingToSave);
+
 		if (this.building.id) this.buildingService.put(buildingToSave).subscribe();
 		else this.buildingService.post(buildingToSave).subscribe();
+		this.navigateToBuildingsList();
 	}
 }
