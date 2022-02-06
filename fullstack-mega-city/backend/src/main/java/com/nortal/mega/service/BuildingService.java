@@ -24,6 +24,16 @@ public class BuildingService {
     }
 
     public void save(Building building) {
+        // Not sure if this type of valdiation should be here
+        if (!building.getIndex().startsWith("NO")) {
+            // would prefer to show error: "Index has to start with NO” below the input field."
+            return;
+        }
+        if (building.getEnergyUnitMax() < building.getEnergyUnits()) {
+            // would prefer to show error: "This building can stake a maximum of X units."
+            return;
+        }
+
         buildingRepository.save(buildingDboMapper.map(building));
     }
 
