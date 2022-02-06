@@ -30,7 +30,6 @@ public class BuildingController {
 
     @PostMapping
     public ResponseEntity<BuildingDto> createBuilding(@RequestBody @Valid BuildingDto building) {
-        building.setId(buildingService.count() + 1);
         buildingService.save(buildingDtoMapper.map(building));
         return ResponseEntity.ok().build();
     }
