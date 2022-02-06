@@ -38,10 +38,11 @@ export class BuildingFormComponent implements OnInit {
 	initialize(building?: Building) {
 		this.building = building;
 
-		if (building) {
+		if (building?.id) {
 			this.form = this.initForm(building);
 		} else {
 			// So that energy units are checked when max energy value is changed
+			// Only needs to happen on create building
 			this.form.controls['energyUnitMax'].valueChanges.subscribe(() => {
 				this.form.controls['energyUnits'].updateValueAndValidity();
 			});
