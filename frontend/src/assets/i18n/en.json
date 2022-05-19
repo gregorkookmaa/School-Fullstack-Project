@@ -18,7 +18,9 @@
   },
   "lore": {
     "newBuilding": "New building",
+    "newHuman": "New human",
     "editBuilding": "Edit building '{{name}}'",
+    "editHuman": "Edit human '{{name}}'",
     "building": {
       "id": "ID",
       "name": "Name",
@@ -32,6 +34,13 @@
         "minEnergyUnitsMax": "A building needs to have at least 1 energy unit",
         "maxEnergyUnits": "This building can stake a maximum of {{value}} units"
       }
+    },
+    "human": {
+      "id": "ID",
+      "name": "Name",
+      "livesin": "Hoomans address",
+      "gender": "Gender",
+      "age": "Age"
     },
     "list": {
       "button": {

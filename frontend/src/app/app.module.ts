@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BuildingFormComponent } from './lore/containers/building-form/building-form.component';
+import { HumanFormComponent } from './lore/containers/human-form/human-form.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -14,10 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { BuildingListComponent } from './lore/containers/building-list/building-list.component';
+import { HumanListComponent } from './lore/containers/human-list/human-list.component';
 import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
-	declarations: [AppComponent, BuildingFormComponent, BuildingListComponent],
+	declarations: [AppComponent, BuildingFormComponent, BuildingListComponent, HumanFormComponent, HumanListComponent],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
