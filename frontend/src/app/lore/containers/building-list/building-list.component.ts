@@ -25,4 +25,12 @@ export class BuildingListComponent implements OnInit {
 	createBuilding() {
 		this.router.navigate(['building/new']).then();
 	}
+
+	goHumans() {
+		this.router.navigate(['/humans']).then();
+	}
+
+	goHome() {
+		this.router.navigate(['/main']).then();
+	}
 }

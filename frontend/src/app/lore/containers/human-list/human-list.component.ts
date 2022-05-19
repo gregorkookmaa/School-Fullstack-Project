@@ -25,4 +25,12 @@ export class HumanListComponent implements OnInit {
 	createHuman() {
 		this.router.navigate(['humans/new']).then();
 	}
+
+	goBuildings() {
+		this.router.navigate(['/buildings']).then();
+	}
+
+	goHome() {
+		this.router.navigate(['/main']).then();
+	}
 }

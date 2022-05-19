@@ -45,7 +45,10 @@
     "list": {
       "button": {
         "edit": "Edit",
-        "createNew": "Create new"
+        "createNew": "Create new",
+        "goHumans": "Humans",
+        "goBuildings": "Buildings",
+        "goHome": "Go home"
       }
     }
   }
