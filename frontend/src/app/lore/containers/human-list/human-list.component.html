@@ -1,0 +1,45 @@
+<div class="data-table">
+	<button mat-raised-button color="primary" class="new-human-btn" (click)="createHuman()">
+		{{ 'lore.list.button.createNew' | translate }}
+	</button>
+	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+		<ng-container matColumnDef="id">
+			<th class="w-75" mat-header-cell *matHeaderCellDef>{{ 'lore.human.id' | translate }}</th>
+			<td mat-cell *matCellDef="let element">
+				<b>{{ element.id }}</b>
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef>{{ 'lore.human.name' | translate }}</th>
+			<td mat-cell *matCellDef="let element">{{ element.name }}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="livesin">
+			<th mat-header-cell *matHeaderCellDef>{{ 'lore.human.livesin' | translate }}</th>
+			<td mat-cell *matCellDef="let element">{{ element.livesin }}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="gender">
+			<th class="w-100" mat-header-cell *matHeaderCellDef>{{ 'lore.human.gender' | translate }}</th>
+			<td mat-cell *matCellDef="let element">{{ element.gender }}</td>
+		</ng-container>
+
+        <ng-container matColumnDef="age">
+			<th class="w-100" mat-header-cell *matHeaderCellDef>{{ 'lore.human.age' | translate }}</th>
+			<td mat-cell *matCellDef="let element">{{ element.age }}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="actions">
+			<th class="w-75" mat-header-cell *matHeaderCellDef>{{ 'common.table.actions' | translate }}</th>
+			<td mat-cell *matCellDef="let element">
+				<button mat-raised-button color="basic" (click)="updateHuman(element.id)">
+					{{ 'lore.list.button.edit' | translate }}
+				</button>
+			</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+</div>
