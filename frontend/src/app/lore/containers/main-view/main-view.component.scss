@@ -3,26 +3,25 @@ table {
 	min-width: 50em;
 }
 
-.data-table {
+.main-table {
 	padding: 2em;
 	padding-top: 1em;
 }
 
-.new-human-btn {
+.goto-humans-btn {
 	float: left;
 	margin-bottom: 1em;
+	margin-left: 38.5em;
+	padding: 15px 32px;
+	font-size: 20px;
 }
 
-.go-buildings-btn {
+.goto-buildings-btn {
 	float: left;
 	margin-bottom: 1em;
 	margin-left: 2em;
-}
-
-.go-home-btn {
-	float: left;
-	margin-bottom: 1em;
-	margin-left: 2em;
+	padding: 15px 32px;
+	font-size: 20px;
 }
 
 .w-75 {

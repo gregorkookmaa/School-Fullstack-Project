@@ -2,6 +2,12 @@
 	<button mat-raised-button color="primary" class="new-building-btn" (click)="createBuilding()">
 		{{ 'lore.list.button.createNew' | translate }}
 	</button>
+	<button mat-raised-button color="primary" class="go-humans-btn" (click)="goHumans()">
+		{{ 'lore.list.button.goHumans' | translate }}
+	</button>
+	<button mat-raised-button color="primary" class="go-home-btn" (click)="goHome()">
+		{{ 'lore.list.button.goHome' | translate }}
+	</button>
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 		<ng-container matColumnDef="id">
 			<th class="w-75" mat-header-cell *matHeaderCellDef>{{ 'lore.building.id' | translate }}</th>
