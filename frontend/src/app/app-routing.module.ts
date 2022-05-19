@@ -4,13 +4,15 @@ import { BuildingFormComponent } from './lore/containers/building-form/building-
 import { BuildingListComponent } from './lore/containers/building-list/building-list.component';
 import { HumanFormComponent } from './lore/containers/human-form/human-form.component';
 import { HumanListComponent } from './lore/containers/human-list/human-list.component';
+import { MainViewComponent } from './lore/containers/main-view/main-view.component';
 
 const routes: Routes = [
 	{ path: 'buildings', component: BuildingListComponent },
 	{ path: 'building/:id', component: BuildingFormComponent },
 	{ path: 'humans', component: HumanListComponent },
 	{ path: 'humans/:id', component: HumanFormComponent },
-	{ path: '**', redirectTo: '/humans', pathMatch: 'full' },
+	{ path: 'main', component: MainViewComponent },
+	{ path: '**', redirectTo: '/main', pathMatch: 'full' },
 ];
 
 @NgModule({
